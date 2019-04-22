@@ -1,6 +1,16 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { login } from '../../actions'
+
+//style
+
+const LogInForm = styled.form`
+  width: 400px;
+  height: 400px;
+  background-color: silver;
+  margin: 0 auto;
+`
 
 
 class Login extends React.Component {
@@ -31,28 +41,36 @@ class Login extends React.Component {
 
   render() {
     return(
-      <div className='login-card'>
-        <form 
-          // onSubmit={this.login}
-        >
-          <input 
-            type='text'
-            name='username'
-            placeholder='User Name'
-            // value={this.state.credentials.username}
-            // onChange={this.handleChange}
-          />
-          <input 
-            type='text'
-            name='password'
-            placeholder='Password'
-            // value={this.state.credentials.username}
-            // onChange={this.handleChange}
-          />
-          <button>Log In</button>
-        </form>
-      
-      </div>
+      <LogInForm>
+        <div className='login-card'>
+          <h2>Please Sign In</h2>
+          <form 
+            // onSubmit={this.login}
+          >
+          <h3>What is your username?</h3>
+            <input 
+              type='text'
+              name='username'
+              placeholder='User Name'
+              // value={this.state.credentials.username}
+              // onChange={this.handleChange}
+            />
+            <h3>Do you have a Boss password?</h3>
+            <input 
+              type='text'
+              name='password'
+              placeholder='Password'
+              // value={this.state.credentials.username}
+              // onChange={this.handleChange}
+            />
+            <button>Sign In</button>
+            <br/>
+            <p>Forgot your password?</p>
+            <p>Reset my password</p>
+          </form>
+        
+        </div>
+      </LogInForm>
     )
   }
 }

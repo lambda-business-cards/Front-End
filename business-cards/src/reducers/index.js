@@ -15,8 +15,10 @@ import {
 const initialState ={
   cards: [
     {
-      business: 'Best Business Ever',
-      name: 'Pat Palmerston'
+      title: 'Business Name',
+      name: 'Pat Palmerston',
+      number: 707-787-9899,
+      email: 'pat@yahoo.com'
     }
   ],
   fetchingData: false,
