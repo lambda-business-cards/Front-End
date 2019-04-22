@@ -6,7 +6,7 @@ import CardForm from './CardForm';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { getData } from '../actions'
+import { getData } from '../../actions'
 
 class CardsList extends React.Component {
   componentDidMount() {

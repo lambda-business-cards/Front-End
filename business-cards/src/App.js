@@ -1,29 +1,43 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-import Login from './components/Login';
-import PrivateRoute from './components/PrivateRoute';
-import CardsList from './components/CardsList';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+import PrivateRoute from './components/header/PrivateRoute';
+import CardsList from './components/cards/CardsList';
+import Search from './components/header/Search';
+import Login from './components/header/Login';
+import Logo from './components/header/Logo';
+
+
 
 import './App.css';
+
 
 export const App = () => {
   
     return (
       <BrowserRouter>
-        <div className="App">
-          <p>I am the App Component</p>
-          <ul>
-            <li>
-              <Link to='/login'>Login</Link>
-            </li>
-            <li>
-              <Link to='/protected'>Private</Link>
-            </li>
-          </ul>
-          <Route path='/login' component={Login} />
-          <PrivateRoute exact path= '/protected' component={CardsList} />
+      <div className='Header'>
+        <Logo />
+        <Search />
+        
+        <div>
+          <Link to='/login'>Login</Link>
         </div>
-      </BrowserRouter>
+         <div>
+           <Link to='/protected'>Private</Link>
+         </div>
+         
+        <Route 
+          path='/login' 
+          component={Login} 
+        />
+
+        <PrivateRoute 
+          exact path= '/protected' 
+          component={CardsList} 
+        />
+      </div>
+    </BrowserRouter>
     );
   
 }
