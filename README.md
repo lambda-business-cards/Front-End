@@ -1,8 +1,8 @@
 # Front-End README
 
-Lambda Student Pat Palmerston 2nd Build Week from React Module working the Business Cards App Build.
+Lambda Student: Pat Palmerston 2nd Build Week from React Module working the Business Cards App Build.
 
-Team:
+Team:<br>
   Team Lead: Jonathan Heinz,<br>
   UI: Danielle O'Neal,<br>
   Front-End 1: Oscar Ortiz,<br>
