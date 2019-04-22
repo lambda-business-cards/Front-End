@@ -1,17 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import PrivateRoute from './components/views/PrivateRoute';
 import CardsList from './components/cards/CardsList';
+import SignUp from './components/header/SignUp';
 import Footer from './components/footer/footer';
 import Search from './components/header/Search';
 import Login from './components/header/Login';
 import Logo from './components/header/Logo';
-
-
-
-
 import './App.css';
+
+//style
+
+const NavBar = styled.nav`
+display: flex;
+justify-content: space-around;
+margin: 1rem;
+`
 
 
 export const App = (props) => {
@@ -21,7 +28,7 @@ export const App = (props) => {
       <div className='body'>
 
         <div className='header-container'>
-
+          <NavBar>
             <div className="logo">
               <Logo />
             </div>
@@ -29,12 +36,17 @@ export const App = (props) => {
               <Search />
             </div>
             <div>
-              <Link to='/login'>Login/SignUp</Link>
+              <Link to='/login'>Login</Link>
               <Route 
-                exact path='/login' 
+                path='/login' 
                 component={Login} 
               />
             </div>
+            <div>
+            <Link to='/user'>Sign Up</Link>
+            <Route path='/user' component={SignUp}/>
+            </div>
+          </NavBar> 
             
         </div>
 

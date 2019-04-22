@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { login } from '../../actions'
+import { createUser } from '../../actions'
 
 //style
 
-const LogInForm = styled.div`
+const SignUpForm = styled.div`
   width: 400px;
   height: 400px;
   background-color: silver;
@@ -13,13 +13,15 @@ const LogInForm = styled.div`
 `
 
 
-class Login extends React.Component {
+class SignUp extends React.Component {
   constructor() {
     super()
     this.state = {
       credentials: {
         username: '',
-        password: ''
+        email: '',
+        password: '',
+        phone:''
       }
     }
   }
@@ -33,21 +35,21 @@ class Login extends React.Component {
     })
   }
 
-  handleLogin = e => {
+  handleNewUser = e => {
     e.preventDefault();
-    this.props.login(this.state.credentials)
+    this.props.createUser(this.state.credentials)
       .then(() => this.props.history.push('/protected'))
   }
 
   render() {
     return(
-      <LogInForm>
+      <SignUpForm>
         <div className='login-card'>
-          <h2>Please Sign In</h2>
+          <h2>Register for you new Account!</h2>
           <form 
-            onSubmit={this.handleLogin}
+            onSubmit={this.handleNewUser}
           >
-          <h3>What is your username?</h3>
+          <h4>Lets choose a Unique Username!</h4>
             <input 
               type='text'
               name='username'
@@ -55,7 +57,15 @@ class Login extends React.Component {
               value={this.state.credentials.username}
               onChange={this.handleChange}
             />
-            <h3>Do you have a Boss password?</h3>
+          <h4>Please use a valid email</h4>
+            <input 
+              type='text'
+              name='email'
+              placeholder='Email'
+              value={this.state.credentials.email}
+              onChange={this.handleChange}
+            />
+          <h4>Create a unique password to protect your account</h4>
             <input 
               type='text'
               name='password'
@@ -63,24 +73,30 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-            <button>Sign In</button>
-            <br/>
-            <p>Forgot your password?</p>
-            <p>Reset my password</p>
+          <h4>Please add your Phone Number</h4>
+            <input 
+              type='text'
+              name='phone'
+              placeholder='Phone Number'
+              value={this.state.credentials.phone}
+              onChange={this.handleChange}
+            />
+            <button>Register</button>
+            
           </form>
         
         </div>
-      </LogInForm>
+      </SignUpForm>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    fetchingData: state.fetchingData,
+    fetchingData: state.creatingUser,
     error: state.error
   }
 }
 
-export default connect (mapStateToProps, { login })(Login)
+export default connect (mapStateToProps, { createUser })(SignUp)
 

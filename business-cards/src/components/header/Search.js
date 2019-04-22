@@ -3,7 +3,13 @@ import React from 'react';
 export const Search = () => {
   return(
     <div>
-      I am the search Component
+      <input 
+        type=''
+        name=''
+        placeholder='Search'
+        // value={}
+        // onChange={}
+      />
     </div>
   )
 }

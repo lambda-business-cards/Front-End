@@ -9,19 +9,6 @@ import { withRouter } from 'react-router-dom';
 import { getData } from '../../actions'
 
 class CardsList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cards: 
-        {
-          business: 'Best Business Ever',
-        name: 'Pat Palmerston',
-        email: 'pat@yaho.com' 
-        }
-             
-    } 
-  }
-
 
   componentDidMount() {
     this.props.getData();

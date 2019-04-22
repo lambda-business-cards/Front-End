@@ -6,24 +6,21 @@ import {
   FETCH_DATA_START,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILURE,
+  CREATE_USER_START,
+  CREATE_USER_SUCCESS,
+  CREATE_USER_FAILURE,
   CREATE_CARD_START,
   CREATE_CARD_SUCCESS,
-  CREATE_CARD_FAILURE
+  CREATE_CARD_FAILURE,
 } from '../actions';
 
 
 const initialState ={
-  cards: [
-    {
-      title: 'Business Name',
-      name: 'Pat Palmerston',
-      number: 707-787-9899,
-      email: 'pat@yahoo.com'
-    }
-  ],
+  cards: [],
   fetchingData: false,
   loggingIn: false,
   creatingCard: false,
+  creatingUser: false,
   error: null
 }
 
@@ -61,21 +58,35 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: action.payload
       }
-
-    case CREATE_CARD_START: 
+      //Card
+    case CREATE_CARD_START:  
       return {
         ...state,
         creatingCard: true
       }
-      
-    case CREATE_CARD_SUCCESS:
+    case CREATE_CARD_SUCCESS:   
       return {
         ...state,
         cards: action.payload,
         creatingCard: false
       }
-
-      case CREATE_CARD_FAILURE:
+    case CREATE_CARD_FAILURE: 
+      return {
+        ...state,
+        error: action.payload
+      }
+      // User
+    case CREATE_USER_START:  
+      return {
+        ...state,
+        creatingUser: true
+      }
+    case CREATE_USER_SUCCESS:   
+      return {
+        ...state,
+        creatingUser: false
+      }
+      case CREATE_USER_FAILURE: 
         return {
           ...state,
           error: action.payload
@@ -83,6 +94,7 @@ export const reducer = (state = initialState, action) => {
       
     default:
       return state;
+
   }
 }
 
