@@ -9,17 +9,35 @@ import { withRouter } from 'react-router-dom';
 import { getData } from '../../actions'
 
 class CardsList extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      cards: 
+        {
+          business: 'Best Business Ever',
+        name: 'Pat Palmerston',
+        email: 'pat@yaho.com' 
+        }
+             
+    } 
+  }
+
+
   componentDidMount() {
     this.props.getData();
   }
 
   render() {
     return(
-      <div>
-        {this.props.cards.map(card => {
-          return <Card key={card.id} card={card} />
-        })}
+      <div className="card-list-container">
+        <div>
+          {this.props.cards.map(card => {
+            return <Card key={card.id} card={card} />
+          })}
+        </div>
+        <div>
         <CardForm {...this.props} />
+        </div>
       </div>
     )
   }

@@ -1,8 +1,12 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
   return(
-    <div> Card Component</div>
+    <div className="card-view"> 
+      <div> {props.card.business}</div>
+      <div> {props.card.name} </div>
+    </div>
+    
   )
 }
 

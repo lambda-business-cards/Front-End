@@ -13,7 +13,12 @@ import {
 
 
 const initialState ={
-  cards: [],
+  cards: [
+    {
+      business: 'Best Business Ever',
+      name: 'Pat Palmerston'
+    }
+  ],
   fetchingData: false,
   loggingIn: false,
   creatingCard: false,
