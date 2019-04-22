@@ -28,7 +28,7 @@ export const App = (props) => {
               <Search />
             </div>
             <div>
-              <Link to='/login'>Login</Link>
+              <Link to='/login'>Login/SignUp</Link>
               <Route 
                 exact path='/login' 
                 component={Login} 
