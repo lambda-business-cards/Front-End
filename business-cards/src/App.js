@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import PrivateRoute from './components/views/PrivateRoute';
 import CardsList from './components/cards/CardsList';
+import Footer from './components/footer/footer';
 import Search from './components/header/Search';
 import Login from './components/header/Login';
 import Logo from './components/header/Logo';
@@ -50,6 +51,9 @@ export const App = (props) => {
             exact path= '/protected'
             component={CardsList} 
           />
+        </div>
+        <div>
+          <Footer />
         </div>
 
       </div>
