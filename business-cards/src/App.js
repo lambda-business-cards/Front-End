@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+
+
 import Login from './components/Login/Login';
 
 class App extends React.Component {
@@ -9,6 +12,20 @@ class App extends React.Component {
     this.state = {
       title: "Business Card Org"
     }
+  }
+
+  componentDidMount(){
+    var token = localStorage.getItem(`token`)
+    var req = {
+      headers: { authorization : token }
+    }
+    axios
+    .post("https://business-card-backend.herokuapp.com/api/users/login")
+    .then(res => {
+      this.setState({ })
+      console.log(res)
+    })
+
   }
 
   render() {
