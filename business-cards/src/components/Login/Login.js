@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import styled from 'styled-components';
 import { Button, Form } from 'reactstrap';
 import axios from 'axios';
@@ -29,7 +29,7 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
     console.log('inside the login function')
-    axios.post('https://watermyplantsbe.herokuapp.com/api/login', this.state.credentials)
+    axios.post('https://business-card-backend.herokuapp.com/api/users/login', this.state.credentials)
         .then(res => {
           localStorage.setItem("token", res.data.token);
           this.props.history.push(`/lists`);

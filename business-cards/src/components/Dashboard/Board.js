@@ -18,7 +18,7 @@ class Board extends React.Component {
      headers: { authorization : token },
    }
    axios
-     .get(`https://watermyplantsbe.herokuapp.com/api/users/${id}/plants`, request)
+     .get(`https://business-card-backend.herokuapp.com//api/cards`, request)
      .then(res => {
        console.log(res);
        this.setState({
