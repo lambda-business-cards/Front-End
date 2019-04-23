@@ -4,6 +4,7 @@ import { Button, Form } from 'reactstrap';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux'
+import './Login.css';
 
 class Login extends React.Component {
   constructor(props) {
