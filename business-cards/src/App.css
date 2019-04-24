@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+.app {
+  border: 5px solid silver;
+  width: 70%;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+  align-items: center;
+}
+
+
+button {
+  width: 50%;
+  margin-top: 20px;
+}

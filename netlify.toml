@@ -1,0 +1,4 @@
+[build]
+base = 'business-cards/'
+publish = 'business-cards/build/'
+command = 'yarn build'
