@@ -45,10 +45,11 @@ export const reducer = (state = initialState, action) => {
 
     case FETCH_DATA_SUCCESS:
     // console.log(action.payload.results)
+    
       return {
         ...state,
         fetchingData: false,
-        cards: [...action.payload]
+        cards: action.payload.data
       }
 
     case LOGIN_FAILURE:
@@ -99,3 +100,29 @@ export const reducer = (state = initialState, action) => {
 }
 
 export default reducer;
+
+
+// {
+//   id: 5,
+//   business_name: 'Philz Fire',
+//   contact_name: 'Mason Lander',
+//   email: 'masonOG@dingbat.net',
+//   phone: 12457896325,
+//   img_url: null,
+//   address: '67 lambert st',
+//   fax: 14785236987,
+//   web_url: 'philzfire.com',
+//   user_id: 999
+// },
+// {
+//   id: 6,
+//   business_name: 'Phenom Fares',
+//   contact_name: 'Terry Potcher',
+//   email: 'nethigh@life.sas',
+//   phone: 12457891234,
+//   img_url: null,
+//   address: '45 crane st',
+//   fax: 14778965987,
+//   web_url: 'Fares.com',
+//   user_id: 998
+// }

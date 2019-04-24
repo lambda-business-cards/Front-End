@@ -6,10 +6,14 @@ class CardForm extends React.Component {
   constructor() {
     super()
     this.state = {
-      someData: '',
-      moreData:'',
-      anotherData: ''
+      business_name: '',
+      contact_name:'',
+      email: ''
     };
+  }
+
+  componentDidMount() {
+    this.props.createCard('token')
   }
 
   handleNewInput = e => {
@@ -17,9 +21,9 @@ class CardForm extends React.Component {
   };
 
   addCard = () => {
-    const { someData, moreData, anotherData } = this.state;
-    this.props.createCard({ someData, moreData, anotherData });
-    this.setState({ someData: '', moreData: '', anotherData: '' })
+    const { business_name, contact_name, email } = this.state;
+    this.props.createCard({ business_name, contact_name, email });
+    this.setState({ business_name: '', contact_name: '', email: '' })
   }
 
   render(){
@@ -27,26 +31,26 @@ class CardForm extends React.Component {
       <form className='new-card'>
       <input
         className='card-input'
-        value={this.state.name}
-        name='someData'
+        value={this.state.business_name}
+        name='business_name'
         type='text'
-        placeholder='someData'
+        placeholder='business name'
         onChange={this.handleNewInput} 
       />
       <input
         className='card-input'
-        value={this.state.name}
-        name='moreData'
+        value={this.state.contact_name}
+        name='contact_name'
         type='text'
-        placeholder='moreData'
+        placeholder='contact name'
         onChange={this.handleNewInput} 
       />
       <input
         className='card-input'
-        value={this.state.name}
-        name='anotherData'
+        value={this.state.email}
+        name='email'
         type='text'
-        placeholder='anotherData'
+        placeholder='email'
         onChange={this.handleNewInput} 
       />
       <button onClick={() => this.addCard()}

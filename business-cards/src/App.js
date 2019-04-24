@@ -7,9 +7,9 @@ import PrivateRoute from './components/views/PrivateRoute';
 import CardsList from './components/cards/CardsList';
 import SignUp from './components/header/SignUp';
 import Footer from './components/footer/footer';
-import Search from './components/header/Search';
+// import Search from './components/header/Search';
 import Login from './components/header/Login';
-import Logo from './components/header/Logo';
+// import Logo from './components/header/Logo';
 import './App.css';
 
 //style
@@ -29,18 +29,21 @@ export const App = (props) => {
 
         <div className='header-container'>
           <NavBar>
-            <div className="logo">
+            {/* <div className="logo">
               <Logo />
             </div>
             <div className='search'>
               <Search />
-            </div>
+            </div> */}
             <div>
               <Link to='/login'>Login</Link>
+              <Link to='/'>Log Out</Link>
               <Route 
                 path='/login' 
                 component={Login} 
               />
+              
+              
             </div>
             <div>
             <Link to='/user'>Sign Up</Link>
@@ -62,7 +65,7 @@ export const App = (props) => {
            <PrivateRoute 
             exact path= '/protected'
             component={CardsList} 
-          />
+           />
         </div>
         <div>
           <Footer />

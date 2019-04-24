@@ -17,11 +17,16 @@ export const CREATE_CARD_START = 'CREATE_CARD_START';
 export const CREATE_CARD_SUCCESS = 'CREATE_CARD_SUCCESS';
 export const CREATE_CARD_FAILURE = 'CREATE_CARD_FAILURE';
 
-export const createCard = card => {
-  const newCard = axios.post('https://business-card-backend.herokuapp.com/api/users/create', card);
+export const createCard = (card) => {
+  
   return dispatch => {
     dispatch({ type: CREATE_CARD_START });
-    newCard
+
+    return axios.post('https://business-card-backend.herokuapp.com/api/cards', (card, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }
+    }))
       .then(({ data }) => {
         dispatch({ 
           type: CREATE_CARD_SUCCESS, 
@@ -35,6 +40,24 @@ export const createCard = card => {
         })
       })
   }
+}
+
+export const getData = () => dispatch => {
+  dispatch({ type: FETCH_DATA_START });
+
+  axios.get('https://business-card-backend.herokuapp.com/api/cards', {
+    headers: {
+      Authorization: localStorage.getItem('token')
+    }
+  })
+    .then(res => dispatch({
+      type: FETCH_DATA_SUCCESS,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: FETCH_DATA_FAILURE,
+      payload: 'Error! Unable to Fetch API'
+    }))
 }
 
 
@@ -73,20 +96,23 @@ export const login = (credentials) => dispatch => {
     }))
 }
 
-export const getData = () => dispatch => {
-  dispatch({ type: FETCH_DATA_START });
 
-  axios.get('https://business-card-backend.herokuapp.com/api/cards', {
-    headers: {
-      Authorization: localStorage.getItem('token')
-    }
-  })
-    .then(res => dispatch({
-      type: FETCH_DATA_SUCCESS,
-      payload: res.data
-    }))
-    .catch(err => dispatch({
-      type: FETCH_DATA_FAILURE,
-      payload: 'Error! Unable to Fetch API'
-    }))
-}
+
+// export const getData = () => dispatch => {
+//   dispatch({ type: FETCH_DATA_START });
+
+//   axios.get('https://business-card-backend.herokuapp.com/api/cards', {
+//     headers: {
+//       Authorization: localStorage.getItem('token')
+//     }
+//   })
+//     .then(res => dispatch({
+//       type: FETCH_DATA_SUCCESS,
+//       payload: res.data
+//     }))
+//     .catch(err => dispatch({
+//       type: FETCH_DATA_FAILURE,
+//       payload: 'Error! Unable to Fetch API'
+//     }))
+// }
+
