@@ -1,34 +1,26 @@
 .App {
   text-align: center;
+  font-size: 1.5em;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 50px;
+  height: 80px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 
-.form {
+.app {
   border: 5px solid silver;
-  width: 40%;
-  height: 400px;
+  width: 70%;
+  height: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-
-input {
-  width: 50%;
-  height: 50px;
-  margin: 0 auto;
-  margin-top: 20px;
-  text-align: center;
+  margin-top: 45px;
+  align-items: center;
 }
 
 

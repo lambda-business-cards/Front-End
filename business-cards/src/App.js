@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import Form from './components/Form/Form';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/Login/PrivateRoute';
-import {Route, Link} from 'react-router-dom';
+import { withRouter ,Router, Route, Link} from 'react-router-dom';
 import Navbar from './components/Navbar/Navigation';
 import Signup from './components/Signup/Signup';
 import Board from './components/Dashboard/Board';
+import AddCard from './components/Dashboard/Actions/AddCard';
+import DeleteCard from './components/Dashboard/Actions/DeleteCard';
+import UpdateCard from './components/Dashboard/Actions/UpdateCard';
+import User from './components/Dashboard/Actions/User';
+
+
 
 class App extends React.Component {
   constructor(props){
@@ -34,17 +39,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          {this.state.title}
+            <Navbar />
         </header>
-        <Navbar />
-      <Route>
-        <div className="form">
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={Signup} />
-        </div>
-        <PrivateRoute path="/dashboard" exact component={Board}/>
-
-      </Route>
+          <Route>
+              <div className="container app">
+                <Route path="/login" exact component={Login} />
+                <Route path="/signup" exact component={Signup} />
+                <PrivateRoute path="/board" exact component={Board}/>
+                <PrivateRoute path="/add" exact component={AddCard} />
+                <PrivateRoute path="/delete" exact component={DeleteCard}/>
+                <PrivateRoute path="/update" exact component={UpdateCard}/>
+                <PrivateRoute path="/user" exact component={User}/>
+              </div>
+            </Route>
       </div>
     );
   }

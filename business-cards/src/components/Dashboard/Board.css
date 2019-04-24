@@ -1,0 +1,27 @@
+.dashboard {
+  border: 1px solid red;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.user {
+  border: 3px solid blue;
+  width: 30%;
+  margin: 2px;
+}
+
+.boardCards {
+  border: 3px solid green;
+  width: 70%;
+  margin: 2px;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+li {
+  margin-bottom: 10px;
+}

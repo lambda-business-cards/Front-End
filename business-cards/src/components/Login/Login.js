@@ -33,8 +33,9 @@ class Login extends React.Component {
     axios.post('https://business-card-backend.herokuapp.com/api/users/login', this.state.credentials)
         .then(res => {
           localStorage.setItem("token", res.data.token);
-          this.props.history.push(`/lists`);
-          localStorage.setItem('id', res.data.id)
+          this.props.history.push(`/board`);
+          localStorage.setItem('id', res.data.id);
+          localStorage.setItem('username', res.data.username)
         })
          .catch(err => console.log(err))
   }
