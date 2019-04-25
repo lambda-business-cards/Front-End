@@ -3,22 +3,40 @@ import React from 'react';
 // import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col'
 import {Form, Button, Col, Row} from 'react-bootstrap';
+import { connect } from "react-redux";
 import './AddCard.css';
 
 class AddCard extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
-    }
+      business_name: "",
+      contact_name: "",
+      email: "",
+      phone: "",
+      address: "",
+      fax: "",
+      web_url: ""
+    };
   }
+
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = e => {
+  e.preventDefault();
+  this.props.addSmurf(this.state);
+  this.setState({ business_name: "", contact_name: "", email: "", phone: "", address:"", fax:"", web_url:"" });
+};
 
   render(){
     return(
       <div>
         add card component
 
-          <div className="addCardForm"> 
+          <div className="addCardForm">
             <Form>
               <Form.Row>
               <Form.Group as={Col} controlId="formGridEmail">
