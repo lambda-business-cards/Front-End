@@ -17,6 +17,14 @@ export const CREATE_CARD_START = 'CREATE_CARD_START';
 export const CREATE_CARD_SUCCESS = 'CREATE_CARD_SUCCESS';
 export const CREATE_CARD_FAILURE = 'CREATE_CARD_FAILURE';
 
+// export const UPDATE_CARD_START = 'UPDATE_CARD_START';
+// export const UPDATE_CARD_SUCCESS = 'UPDATE_CARD_SUCCESS';
+// export const UPDATE_CARD_FAILURE = 'UPDATE_CARD_FAILURE';
+
+// export const DELETE_CARD_START = 'DELETE_CARD_START';
+// export const DELETE_CARD_SUCCESS = 'DELETE_CARD_SUCCESS';
+// export const DELETE_CARD_FAILURE = 'DELETE_CARD_FAILURE';
+
 export const createCard = (card) => {
   
   return dispatch => {
@@ -96,23 +104,57 @@ export const login = (credentials) => dispatch => {
     }))
 }
 
+// export const upDateCard = (card) => {
+  
+//   return dispatch => {
+//     dispatch({ type: CREATE_CARD_START });
 
-
-// export const getData = () => dispatch => {
-//   dispatch({ type: FETCH_DATA_START });
-
-//   axios.get('https://business-card-backend.herokuapp.com/api/cards', {
-//     headers: {
-//       Authorization: localStorage.getItem('token')
-//     }
-//   })
-//     .then(res => dispatch({
-//       type: FETCH_DATA_SUCCESS,
-//       payload: res.data
-//     }))
-//     .catch(err => dispatch({
-//       type: FETCH_DATA_FAILURE,
-//       payload: 'Error! Unable to Fetch API'
-//     }))
+//     return axios.post('https://business-card-backend.herokuapp.com/api/cards', card, {
+//       headers: {
+//         Authorization: localStorage.getItem('token')
+//       }
+//     })
+//       .then(({ data }) => {
+//         dispatch({ 
+//           type: CREATE_CARD_SUCCESS, 
+//           payload: data 
+//         })
+//       })
+//       .catch(err => {
+//         dispatch({ 
+//           type: CREATE_CARD_FAILURE,
+//         payload: 'Error Unable to Create Card'
+//         })
+//       })
+//   }
 // }
+
+// export const deleteCard = (card) => {
+  
+//   return dispatch => {
+//     dispatch({ type: CREATE_CARD_START });
+
+//     return axios.post('https://business-card-backend.herokuapp.com/api/cards', card, {
+//       headers: {
+//         Authorization: localStorage.getItem('token')
+//       }
+//     })
+//       .then(({ data }) => {
+//         dispatch({ 
+//           type: CREATE_CARD_SUCCESS, 
+//           payload: data 
+//         })
+//       })
+//       .catch(err => {
+//         dispatch({ 
+//           type: CREATE_CARD_FAILURE,
+//         payload: 'Error Unable to Create Card'
+//         })
+//       })
+//   }
+// }
+
+
+
+
 
