@@ -10,6 +10,7 @@ import Footer from './components/footer/footer';
 // import Search from './components/header/Search';
 import Login from './components/header/Login';
 // import Logo from './components/header/Logo';
+import QrScanner from './components/qrScanner/QrScanner';
 import './App.css';
 
 //style
@@ -29,25 +30,16 @@ export const App = (props) => {
 
         <div className='header-container'>
           <NavBar>
-            {/* <div className="logo">
-              <Logo />
-            </div>
-            <div className='search'>
-              <Search />
-            </div> */}
             <div>
               <Link to='/login'>Login</Link>
               <Link to='/'>Log Out</Link>
-              <Route 
-                path='/login' 
-                component={Login} 
-              />
+              
               
               
             </div>
             <div>
             <Link to='/user'>Sign Up</Link>
-            <Route path='/user' component={SignUp}/>
+            
             </div>
           </NavBar> 
             
@@ -57,6 +49,7 @@ export const App = (props) => {
           <nav className="nav">
             <div>
               <Link to='/protected'>Home</Link>
+              <Link to='/qrScan'>Scan Card</Link>
             </div>
           </nav>
         </div>
@@ -66,6 +59,15 @@ export const App = (props) => {
             exact path= '/protected'
             component={CardsList} 
            />
+           <PrivateRoute
+            exact path= '/qrScan'
+            component={QrScanner} />
+
+           <Route path='/user' component={SignUp}/>
+           <Route 
+                path='/login' 
+                component={Login} 
+              />
         </div>
         <div>
           <Footer />
