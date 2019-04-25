@@ -42,6 +42,7 @@ class CardsList extends React.Component {
   }
 }
 
+
 const mapStateToProps = ({ cards, fetchingData }) => ({
   cards,
   fetchingData

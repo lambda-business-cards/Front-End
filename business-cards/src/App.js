@@ -28,20 +28,28 @@ export const App = (props) => {
       <Nav />
       <DashBoard />
 
-        <div className='main-body'>  
+        <div className='main-body'>
+
            <PrivateRoute 
             exact path= '/protected'
             component={CardsList} 
            />
            <PrivateRoute
+            path='/protected/:id'
+            component={CardsList} 
+            />
+           <PrivateRoute
             exact path= '/qrScan'
-            component={QrScanner} />
+            component={QrScanner} 
+            />
 
            <Route path='/user' component={SignUp}/>
+
            <Route 
-                path='/login' 
-                component={Login} 
-              />
+              path='/login' 
+              component={Login} 
+            />
+
         </div>
         <div>
           <Footer />
