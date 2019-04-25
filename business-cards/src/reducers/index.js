@@ -12,6 +12,13 @@ import {
   CREATE_CARD_START,
   CREATE_CARD_SUCCESS,
   CREATE_CARD_FAILURE,
+  // UPDATE_CARD_START,
+  // UPDATE_CARD_SUCCESS,
+  // UPDATE_CARD_FAILURE,
+  // DELETE_CARD_START,
+  // DELETE_CARD_SUCCESS,
+  // DELETE_CARD_FAILURE
+
 } from '../actions';
 
 
@@ -22,6 +29,8 @@ const initialState ={
   creatingCard: false,
   creatingUser: false,
   savedCard: false,
+  // updatingCard: false,
+  // deletingCard: false,
   error: null
 }
 
