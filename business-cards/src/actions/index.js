@@ -104,10 +104,12 @@ export const login = (credentials) => dispatch => {
     }))
 }
 
+
+
 // export const upDateCard = (card) => {
   
 //   return dispatch => {
-//     dispatch({ type: CREATE_CARD_START });
+//     dispatch({ type: UPDATE_CARD_START });
 
 //     return axios.post('https://business-card-backend.herokuapp.com/api/cards', card, {
 //       headers: {
@@ -116,13 +118,13 @@ export const login = (credentials) => dispatch => {
 //     })
 //       .then(({ data }) => {
 //         dispatch({ 
-//           type: CREATE_CARD_SUCCESS, 
+//           type: UPDATE_CARD_SUCCESS, 
 //           payload: data 
 //         })
 //       })
 //       .catch(err => {
 //         dispatch({ 
-//           type: CREATE_CARD_FAILURE,
+//           type: UPDATE_CARD_FAILURE,
 //         payload: 'Error Unable to Create Card'
 //         })
 //       })
@@ -132,7 +134,7 @@ export const login = (credentials) => dispatch => {
 // export const deleteCard = (card) => {
   
 //   return dispatch => {
-//     dispatch({ type: CREATE_CARD_START });
+//     dispatch({ type: DELETE_CARD_START });
 
 //     return axios.post('https://business-card-backend.herokuapp.com/api/cards', card, {
 //       headers: {
@@ -141,13 +143,13 @@ export const login = (credentials) => dispatch => {
 //     })
 //       .then(({ data }) => {
 //         dispatch({ 
-//           type: CREATE_CARD_SUCCESS, 
+//           type: DELETE_CARD_SUCCESS, 
 //           payload: data 
 //         })
 //       })
 //       .catch(err => {
 //         dispatch({ 
-//           type: CREATE_CARD_FAILURE,
+//           type: DELETE_CARD_FAILURE,
 //         payload: 'Error Unable to Create Card'
 //         })
 //       })
