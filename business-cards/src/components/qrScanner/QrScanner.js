@@ -27,8 +27,9 @@ class QrScanner extends React.Component {
     render(){
       const previewStyle = {
         height: 240,
-        width: 320
+        width: 320,
       }
+      console.log("this is scanner", this.state.result)
       return(
         
         <div>
@@ -38,7 +39,9 @@ class QrScanner extends React.Component {
             onError={this.handleError}
             onScan={this.handleScan}
           />
+          <div>
           <p>{this.state.result}</p>
+          </div>
         </div>
       )
     }
