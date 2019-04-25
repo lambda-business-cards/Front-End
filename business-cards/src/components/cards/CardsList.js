@@ -19,10 +19,11 @@ background: red;
 class CardsList extends React.Component {
 
   componentDidMount() {
-    this.props.getData('token');
+    this.props.getData();
   }
 
   render() {
+    console.log(this.props)
     return(
       <DashBoard>
         <div className="card-list-container">

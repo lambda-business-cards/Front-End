@@ -21,6 +21,7 @@ const initialState ={
   loggingIn: false,
   creatingCard: false,
   creatingUser: false,
+  savedCard: false,
   error: null
 }
 
@@ -37,7 +38,7 @@ export const reducer = (state = initialState, action) => {
 
     case LOGIN_SUCCESS:
       // console.log(action.payload);
-      localStorage.setItem('token', action.payload.payload);
+      localStorage.setItem('token', action.payload.token);
       return {
         ...state,
         fetchingData: false
@@ -49,7 +50,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingData: false,
-        cards: action.payload.data
+        cards: action.payload.saved
       }
 
     case LOGIN_FAILURE:
@@ -68,7 +69,7 @@ export const reducer = (state = initialState, action) => {
     case CREATE_CARD_SUCCESS:   
       return {
         ...state,
-        cards: action.payload,
+        cards: action.payload.created, // or saved
         creatingCard: false
       }
     case CREATE_CARD_FAILURE: 

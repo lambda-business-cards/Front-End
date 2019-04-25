@@ -12,10 +12,7 @@ class CardForm extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.createCard('token')
-  }
-
+ 
   handleNewInput = e => {
     this.setState({ [e.target.name]: e.target.value})
   };

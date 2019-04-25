@@ -22,11 +22,11 @@ export const createCard = (card) => {
   return dispatch => {
     dispatch({ type: CREATE_CARD_START });
 
-    return axios.post('https://business-card-backend.herokuapp.com/api/cards', (card, {
+    return axios.post('https://business-card-backend.herokuapp.com/api/cards', card, {
       headers: {
         Authorization: localStorage.getItem('token')
       }
-    }))
+    })
       .then(({ data }) => {
         dispatch({ 
           type: CREATE_CARD_SUCCESS, 
