@@ -17,9 +17,9 @@ function CardNav() {
   return(
     <div>
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand to='/protected'>Boss Cards</Navbar.Brand>
+      <Navbar.Brand to='/protected'>Card Boss</Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="/protected">Cards</Nav.Link>
+        <Link to="/protected">Cards</Link>
         <Nav.Link href="/addCard">Add</Nav.Link>
         <Nav.Link href="/qrScan">Scan</Nav.Link>
         <Nav.Link href="/login">Login</Nav.Link>
