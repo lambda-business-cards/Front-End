@@ -11,6 +11,7 @@ import AddCard from './components/Dashboard/Actions/AddCard';
 import DeleteCard from './components/Dashboard/Actions/DeleteCard';
 import UpdateCard from './components/Dashboard/Actions/UpdateCard';
 import User from './components/Dashboard/Actions/User';
+import { connect } from "react-redux";
 
 
 

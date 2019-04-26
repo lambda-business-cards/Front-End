@@ -1,18 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 
- const Card = props => {
+ const Card = props => { console.log(props)
   return (
-    <div>
-    <p>{props.card.business_name}</p>
-    <p>{props.card.contact_name}</p>
-    	<p>{props.card.email}</p>
-    	<p>{props.card.phone}</p>
-    	<p>{props.card.address}</p>
-    	<p>{props.card.fax}</p>
-    	<p>{props.card.web_url}</p>
+    <div className="card-view">
+    <div> {props.card.business_name}</div>
+      <div> {props.card.contact_name}</div>
+      <div> {props.card.address}</div>
+      <div> {props.card.fax}</div>
+      <div> {props.card.web_url}</div>
+      <div> {props.card.email} </div>
+      <div> {props.card.phone} </div>
+      <img src={props.card.qr_url}/>
     </div>
   );
 };
 
- export default connect()(Card);
+ export default connect(null, null)(Card);

@@ -2,12 +2,23 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
-} from '../actions';
+  SUCCESS
+} from '../Actions/index';
 
 const initialState = {
+  business_name: "",
+  contact_name: "",
+  email: "",
+  phone: "",
+  address: "",
+  fax: "",
+  web_url: "",
   error: '',
-  loggingIn: false
+  loggingIn: false,
+  cards: [
+  ]
 };
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -25,6 +36,13 @@ const reducer = (state = initialState, action) => {
         error: '',
         loggingIn: false
       };
+    case SUCCESS:
+      return {
+        ...state,
+        error: '',
+        loggingIn: true,
+        cards: action.payload.created
+      }
     default:
       return state;
   }
