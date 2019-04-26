@@ -4,7 +4,7 @@ import { Route, Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import AddCard from './Actions/AddCard';
-import DeleteCard from './Actions/DeleteCard';
+import Scan from './Actions/Scan';
 import UpdateCard from './Actions/UpdateCard';
 import User from './Actions/User';
 import Login from '../Login/Login';
@@ -53,8 +53,8 @@ class Board extends React.Component {
                 </Link>
               </li>
               <li>
-                <Link to="/delete">
-                  Delete Card
+                <Link to="/scanqr">
+                  Scan Card
                 </Link>
               </li>
               <li>
