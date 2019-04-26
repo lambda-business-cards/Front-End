@@ -19,11 +19,11 @@ function CardNav() {
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand to='/protected'>Card Boss</Navbar.Brand>
       <Nav className="mr-auto">
-        <Link to="/protected">Cards</Link>
-        <Nav.Link href="/addCard">Add</Nav.Link>
-        <Nav.Link href="/qrScan">Scan</Nav.Link>
-        <Nav.Link href="/login">Login</Nav.Link>
-        <Nav.Link href="/user">Sign Up</Nav.Link>
+        <Link className='link' to="/protected">Cards</Link>
+        <Link className='link' to="/addCard">Add</Link>
+        <Link className='link' to="/qrScan">Scan</Link>
+        <Link className='link' to="/login">Login</Link>
+        <Link className='link' to="/user">Sign Up</Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
