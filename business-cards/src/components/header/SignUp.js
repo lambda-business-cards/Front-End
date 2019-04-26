@@ -112,7 +112,7 @@ class SignUp extends React.Component {
             <Button type="submit" variant="outline-secondary">Register</Button>
           </Col>
         </Form.Group>
-      </Form>;
+      </Form>
       </SignUpCard>
     )
   }
