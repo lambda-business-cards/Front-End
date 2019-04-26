@@ -34,10 +34,10 @@ export const App = (props) => {
             exact path= '/protected'
             component={CardsList} 
            />
-           <PrivateRoute
+           {/* <PrivateRoute
             path='/protected/:id'
             component={CardsList} 
-            />
+            /> */}
            <PrivateRoute
             exact path= '/qrScan'
             component={QrScanner} 
