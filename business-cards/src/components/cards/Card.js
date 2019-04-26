@@ -30,7 +30,7 @@ const Cards = (props) => {
           </Card.Text>
           <Card.Link href="#">Card Link</Card.Link>
         </Card.Body>
-      </Card>;
+      </Card>
       <div>
       <img src={props.card.qr_url} alt='' />
       </div>

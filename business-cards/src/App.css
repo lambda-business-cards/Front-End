@@ -59,3 +59,7 @@ display: none;
   text-decoration: none;
   color: silver;
 }
+
+.nav-container{
+  margin-bottom: 20px;
+}

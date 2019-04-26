@@ -1,21 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
-
-//style
-const NavBar = styled.nav`
-display: flex;
-justify-content: space-around;
-margin: 1rem;
-`
 
 
 
 function CardNav() {
   return(
-    <div>
+    <div className='nav-container'>
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand to='/protected'>Card Boss</Navbar.Brand>
       <Nav className="mr-auto">
