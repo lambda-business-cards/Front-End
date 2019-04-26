@@ -9,7 +9,7 @@ export default withRouter(function PrivateRoute({ component: Component, ...rest}
       
       <Route {...rest} render={() => {
         if (localStorage.getItem('token'))
-          return<Component {...rest} />
+          return <Component {...rest} />
         return <Redirect to='/login' />
       }}/>
   

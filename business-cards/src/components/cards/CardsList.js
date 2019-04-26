@@ -1,20 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { Route, Redirect } from 'react-router-dom';
+import Cards from './Card';
 
-import Card from './Card';
-import CardForm from './CardForm';
 
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { getData } from '../../actions'
 
-//style
-const DashBoard= styled.div`
-background: red;
-`
+
 
 class CardsList extends React.Component {
 
@@ -25,24 +19,24 @@ class CardsList extends React.Component {
   render() {
     console.log(this.props)
     return(
-      <DashBoard>
-        <div className="card-list-container">
-        <p>List component</p>
+      
+      <div className="card-list-container">
+        
+        <div>
+        
           <div>
             {this.props.cards.map(card => {
-              return <Card key={card.id} card={card} />
+              return <Cards key={card.id} card={card} />
             })}
           </div>
           <div>
             {this.props.savedCard.map(card => {
-              return <Card key={card.id} card={card} />
+              return <Cards key={card.id} card={card} />
             })}
           </div>
-          <div>
-          <CardForm {...this.props} />
-          </div>
+          
         </div>
-      </DashBoard>
+      </div>
     )
   }
 }

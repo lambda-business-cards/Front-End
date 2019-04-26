@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { login } from '../../actions'
-
+import { login } from '../../actions';
+import { Form, Button } from 'react-bootstrap';
 //style
 
-const LogInForm = styled.div`
+const LogInCard = styled.div`
   width: 400px;
   height: 400px;
-  background-color: silver;
   margin: 0 auto;
 `
 
@@ -41,36 +40,30 @@ class Login extends React.Component {
 
   render() {
     return(
-      <LogInForm>
-        <div className='login-card'>
-          <h2>Please Sign In</h2>
-          <form 
-            onSubmit={this.handleLogin}
-          >
-          <h3>What is your username?</h3>
-            <input 
-              type='text'
+      <LogInCard>
+        <h2>Please Sign In</h2>
+      <Form onSubmit={this.handleLogin}>
+        <Form.Group controlId="username">
+          <Form.Label>User Name</Form.Label>
+          <Form.Control type='text'
               name='username'
-              placeholder='User Name'
+              placeholder='user name'
               value={this.state.credentials.username}
-              onChange={this.handleChange}
-            />
-            <h3>Do you have a Boss password?</h3>
-            <input 
-              type='text'
+              onChange={this.handleChange} />
+        </Form.Group>
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type='text'
               name='password'
-              placeholder='Password'
+              placeholder='password'
               value={this.state.credentials.password}
-              onChange={this.handleChange}
-            />
-            <button>Sign In</button>
-            <br/>
-            <p>Forgot your password?</p>
-            <p>Reset my password</p>
-          </form>
-        
-        </div>
-      </LogInForm>
+              onChange={this.handleChange} />
+              
+        </Form.Group>
+        <Button variant="outline-secondary" type="submit">Log In</Button>
+      </Form>
+      </LogInCard>
+      
     )
   }
 }
@@ -83,4 +76,6 @@ const mapStateToProps = state => {
 }
 
 export default connect (mapStateToProps, { login })(Login)
+
+
 

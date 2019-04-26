@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { createUser } from '../../actions'
+import { Form, Row, Col, Button } from 'react-bootstrap';
 
 //style
 
-const SignUpForm = styled.div`
+const SignUpCard = styled.div`
   width: 400px;
   height: 400px;
-  background-color: silver;
   margin: 0 auto;
+  text-align: center;
 `
 
 
@@ -42,51 +43,77 @@ class SignUp extends React.Component {
   }
 
   render() {
-    return(
-      <SignUpForm>
-        <div className='login-card'>
-          <h2>Register for you new Account!</h2>
-          <form 
-            onSubmit={this.handleNewUser}
-          >
-          <h4>Lets choose a Unique Username!</h4>
-            <input 
-              type='text'
-              name='username'
-              placeholder='User Name'
-              value={this.state.credentials.username}
-              onChange={this.handleChange}
-            />
-          <h4>Please use a valid email</h4>
-            <input 
+    return(   
+      <SignUpCard>
+        <h4>Register for you new Account!</h4>
+        <Form onSubmit={this.handleNewUser}>
+          <Form.Group as={Row} controlId="username">
+          <Form.Label column sm={2}>
+            User Name
+          </Form.Label>
+          <Col sm={10}>
+          <Form.Control type='text'
+                name='username'
+                placeholder='user name'
+                value={this.state.credentials.username}
+                onChange={this.handleChange} />
+            </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} controlId="formHorizontalEmail">
+          <Form.Label column sm={2}>
+            Email
+          </Form.Label>
+          <Col sm={10}>
+          <Form.Control         
               type='text'
               name='email'
-              placeholder='Email'
+              placeholder='email'
               value={this.state.credentials.email}
-              onChange={this.handleChange}
-            />
-          <h4>Create a unique password to protect your account</h4>
-            <input 
-              type='text'
-              name='password'
-              placeholder='Password'
-              value={this.state.credentials.password}
-              onChange={this.handleChange}
-            />
-          <h4>Please add your Phone Number</h4>
-            <input 
-              type='text'
-              name='phone'
-              placeholder='Phone Number'
-              value={this.state.credentials.phone}
-              onChange={this.handleChange}
-            />
-            <button>Register</button>
+              onChange={this.handleChange} />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} controlId="phone">
+          <Form.Label column sm={2}>
+            Email
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control type='text'
+                    name='phone'
+                    placeholder='phone number'
+                    value={this.state.credentials.phone}
+                    onChange={this.handleChange} />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} controlId="password">
+          <Form.Label column sm={2}>
+            Password
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control type='text'
+                    name='password'
+                    placeholder='password'
+                    value={this.state.credentials.password}
+                    onChange={this.handleChange} />
+          </Col>
+        </Form.Group>
+ 
+        <Form.Group as={Row} controlId="formHorizontalCheck">
+          <Col sm={{ span: 10, offset: 2 }}>
+            <Form.Check label="Remember me" />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row}>
+          <Col sm={{ span: 10, offset: 2 }}>
             
-          </form>
-        
-        </div>
-      </SignUpForm>
+            <Button type="submit" variant="outline-secondary">Register</Button>
+          </Col>
+        </Form.Group>
+      </Form>;
+      </SignUpCard>
     )
   }
 }

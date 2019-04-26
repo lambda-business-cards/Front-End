@@ -1,7 +1,9 @@
 import React from 'react';
+
 import QrReader from 'react-qr-reader';
 import { connect } from 'react-redux';
 import { addCard } from '../../actions';
+
 
 class QrScanner extends React.Component {
   constructor(props){
@@ -41,17 +43,19 @@ class QrScanner extends React.Component {
       
       return(
         
-        <div>
+        <div className='scanner-container'>
           <QrReader 
+            className='scanner'
             delay={this.state.delay}
             style={previewStyle}
             onError={this.handleError}
             onScan={this.handleScan}
           />
-          <div>
+          <div className='scanner-result'>
           <p>{this.state.result}</p>
           </div>
         </div>
+       
       )
     }
   }
