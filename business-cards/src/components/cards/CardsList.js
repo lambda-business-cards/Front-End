@@ -34,6 +34,11 @@ class CardsList extends React.Component {
             })}
           </div>
           <div>
+            {this.props.savedCard.map(card => {
+              return <Card key={card.id} card={card} />
+            })}
+          </div>
+          <div>
           <CardForm {...this.props} />
           </div>
         </div>
@@ -43,7 +48,8 @@ class CardsList extends React.Component {
 }
 
 
-const mapStateToProps = ({ cards, fetchingData }) => ({
+const mapStateToProps = ({ cards, savedCard, fetchingData }) => ({
+  savedCard,
   cards,
   fetchingData
 })

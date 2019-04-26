@@ -17,9 +17,9 @@ export const CREATE_CARD_START = 'CREATE_CARD_START';
 export const CREATE_CARD_SUCCESS = 'CREATE_CARD_SUCCESS';
 export const CREATE_CARD_FAILURE = 'CREATE_CARD_FAILURE';
 
-// export const UPDATE_CARD_START = 'UPDATE_CARD_START';
-// export const UPDATE_CARD_SUCCESS = 'UPDATE_CARD_SUCCESS';
-// export const UPDATE_CARD_FAILURE = 'UPDATE_CARD_FAILURE';
+export const ADD_CARD_START = 'ADD_CARD_START';
+export const ADD_CARD_SUCCESS = 'ADD_CARD_SUCCESS';
+export const ADD_CARD_FAILURE = 'ADD_CARD_FAILURE';
 
 // export const DELETE_CARD_START = 'DELETE_CARD_START';
 // export const DELETE_CARD_SUCCESS = 'DELETE_CARD_SUCCESS';
@@ -106,30 +106,30 @@ export const login = (credentials) => dispatch => {
 
 
 
-// export const upDateCard = (card) => {
+export const addCard = (id) => {
   
-//   return dispatch => {
-//     dispatch({ type: UPDATE_CARD_START });
+  return dispatch => {
+    dispatch({ type: ADD_CARD_START });
 
-//     return axios.post('https://business-card-backend.herokuapp.com/api/cards', card, {
-//       headers: {
-//         Authorization: localStorage.getItem('token')
-//       }
-//     })
-//       .then(({ data }) => {
-//         dispatch({ 
-//           type: UPDATE_CARD_SUCCESS, 
-//           payload: data 
-//         })
-//       })
-//       .catch(err => {
-//         dispatch({ 
-//           type: UPDATE_CARD_FAILURE,
-//         payload: 'Error Unable to Create Card'
-//         })
-//       })
-//   }
-// }
+    return axios.post('https://business-card-backend.herokuapp.com/api/cards/save', {card_id: id}, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }
+    })
+      .then(({ data }) => {
+        dispatch({ 
+          type: ADD_CARD_SUCCESS, 
+          payload: data 
+        })
+      })
+      .catch(err => {
+        dispatch({ 
+          type: ADD_CARD_FAILURE,
+        payload: 'Error Unable to Upload Scanned Card'
+        })
+      })
+  }
+}
 
 // export const deleteCard = (card) => {
   

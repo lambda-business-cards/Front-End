@@ -12,9 +12,9 @@ import {
   CREATE_CARD_START,
   CREATE_CARD_SUCCESS,
   CREATE_CARD_FAILURE,
-  // UPDATE_CARD_START,
-  // UPDATE_CARD_SUCCESS,
-  // UPDATE_CARD_FAILURE,
+  ADD_CARD_START,
+  ADD_CARD_SUCCESS,
+  ADD_CARD_FAILURE,
   // DELETE_CARD_START,
   // DELETE_CARD_SUCCESS,
   // DELETE_CARD_FAILURE
@@ -24,12 +24,12 @@ import {
 
 const initialState ={
   cards: [],
+  savedCard: [],
   fetchingData: false,
   loggingIn: false,
   creatingCard: false,
   creatingUser: false,
-  savedCard: false,
-  // updatingCard: false,
+  addingCard: false,
   // deletingCard: false,
   error: null
 }
@@ -59,7 +59,8 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingData: false,
-        cards: action.payload.saved
+        cards: action.payload.created,
+        savedCard: action.payload.saved
       }
 
     case LOGIN_FAILURE:
@@ -69,24 +70,41 @@ export const reducer = (state = initialState, action) => {
         ...state,
         error: action.payload
       }
-      //Card
+      // Create Card from form and also Add card from QR
+    case ADD_CARD_START: 
     case CREATE_CARD_START:  
       return {
         ...state,
         creatingCard: true
       }
+
+
+      
+    case ADD_CARD_SUCCESS:
+    return {
+      ...state,
+      savedCard: action.payload.saved, // or saved
+      addingCard: false
+    }   
+    
+    
+
     case CREATE_CARD_SUCCESS:   
       return {
         ...state,
         cards: action.payload.created, // or saved
         creatingCard: false
       }
+
+
+
+
     case CREATE_CARD_FAILURE: 
       return {
         ...state,
         error: action.payload
       }
-      // User
+      // Create / Register User
     case CREATE_USER_START:  
       return {
         ...state,

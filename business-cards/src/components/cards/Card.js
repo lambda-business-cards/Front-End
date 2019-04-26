@@ -10,6 +10,7 @@ const Card = (props) => {
       <div> {props.card.web_url}</div>
       <div> {props.card.email} </div>
       <div> {props.card.phone} </div>
+      <img src={props.card.qr_url} />
     </div>
     
   )

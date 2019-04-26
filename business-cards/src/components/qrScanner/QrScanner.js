@@ -1,23 +1,32 @@
 import React from 'react';
 import QrReader from 'react-qr-reader';
+import { connect } from 'react-redux';
+import { addCard } from '../../actions';
 
 class QrScanner extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       delay: 500,
-      result: 'No result'
+      result: 'No result',
+      scanFinished: false
       }
     }
 
 
     handleScan = (result) => {
-      if (result){
-        this.setState({ result })
+      if (result && !this.state.scanFinished){
+        console.log("this is scanner", result)
+        this.setState({ result, scanFinished: true }, 
+          () => {
+            this.props.addCard(result)
+            .then(() => {this.props.history.push('/protected')})
+          })
       }
     }
 
     handleError(err){
+
       console.log(err)
     }
 
@@ -29,7 +38,7 @@ class QrScanner extends React.Component {
         height: 240,
         width: 320,
       }
-      console.log("this is scanner", this.state.result)
+      
       return(
         
         <div>
@@ -47,4 +56,13 @@ class QrScanner extends React.Component {
     }
   }
 
-  export default QrScanner
+  const mapStateToProps = state => {
+    return{
+      error: state.error,
+      addingCard: state.addingCard
+    }
+  }
+  
+  export default connect (mapStateToProps, { addCard })(QrScanner)
+
+
