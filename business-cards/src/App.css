@@ -11,7 +11,6 @@
   justify-content: flex-end;
 }
 
-
 .app {
   border: 5px solid silver;
   width: 70%;
@@ -22,7 +21,6 @@
   margin-top: 45px;
   align-items: center;
 }
-
 
 button {
   width: 50%;
